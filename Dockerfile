@@ -5,9 +5,7 @@
 
 FROM ubuntu
 MAINTAINER majik <me@yamajik.com>
-LABEL com.resilio.version=""
-
-RUN useradd btsync
+LABEL com.resilio.version="0.1"
 
 RUN apt-get update
 RUN apt-get install -y wget
@@ -30,5 +28,5 @@ VOLUME /mnt/sync
 
 # ENTRYPOINT ["set -xe && gosu btsync run_sync"]
 CMD set -xe \
-    && chown -R btsync:btsync /mnt/sync \
-    && gosu btsync /usr/bin/rslsync --nodaemon --config /etc/sync.conf
+    && chown -R rslsync:rslsync /mnt/sync \
+    && gosu rslsync /usr/bin/rslsync --nodaemon --config /etc/sync.conf
