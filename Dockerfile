@@ -19,6 +19,7 @@ COPY sync.conf /etc/
 
 RUN mkdir -p /mnt/sync/folders
 RUN mkdir -p /mnt/sync/config
+RUN useradd btsync
 
 EXPOSE 8888
 EXPOSE 55555
@@ -26,5 +27,5 @@ EXPOSE 55555
 VOLUME /mnt/sync
 
 CMD set -xe \
-    && chown -R rslsync:rslsync /mnt/sync \
-    && gosu rslsync /usr/bin/rslsync --nodaemon --config /etc/sync.conf
+    && chown -R btsync:btsync /mnt/sync \
+    && gosu btsync /usr/bin/rslsync --nodaemon --config /etc/sync.conf
