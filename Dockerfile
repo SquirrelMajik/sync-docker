@@ -9,7 +9,7 @@ LABEL com.resilio.version="0.1"
 
 RUN apt-get update
 RUN apt-get install -y gosu
-ADD https://download-cdn.resilio.com/2.5.9/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
+ADD resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf /etc/
